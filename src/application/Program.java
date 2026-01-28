@@ -33,11 +33,21 @@ public class Program {
 		}
 		
 		System.out.println("\n=== TESTE 4: seller insert ===");
-		
-		
 		Seller newSeller = new Seller(null,"Greg","greg@gmail.com",new Date(),4000.00,department);
 		sellerDao.insert(newSeller);
 		System.out.println("Incluido ! Novo Id = "+newSeller.getId());
+
+		System.out.println("\n=== TESTE 5: seller update ===");
+		seller = sellerDao.findById(1);
+		System.out.println("\n=== TESTE 5: seller antes do update ===");
+		System.out.println(seller);
+		
+		seller.setName("New Name");
+		sellerDao.update(seller);
+		System.out.println("\n=== TESTE 5: seller depois do update ===");
+		System.out.println(seller);
+		
+		System.out.println("Update completo !");
 		
 	}
 
